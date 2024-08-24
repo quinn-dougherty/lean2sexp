@@ -1,13 +1,12 @@
 import Lean
 
-open Lean in
 inductive Sexp : Type
 | atom : String → Sexp
 | string : String → Sexp
 | integer : Int → Sexp
 | double : Float → Sexp
 | cons : List Sexp → Sexp
-deriving Inhabited, ToJson
+deriving Inhabited
 
 partial def Sexp.toString : Sexp → String
   | .atom s => s
